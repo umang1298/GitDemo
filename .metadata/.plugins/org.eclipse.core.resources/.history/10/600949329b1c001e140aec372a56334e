@@ -1,0 +1,21 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class my {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		Actions a = new Actions(driver);
+		a moveToElement(driver.findElement(By.className("gLFyf"))).click().keydown().(key.shift).sendkeys.("hello").build().perform();
+		
+		
+		
+		
+	}
+	
+}

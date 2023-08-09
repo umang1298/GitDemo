@@ -1,0 +1,19 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class calendar {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.path2usa.com/travel-companion/");
+		//I will provide month name & date name= 14April
+		driver.findElement(By.xpath("//*[@id='form-field-travel_comp_date']")).click();
+		
+		
+		
+	}
+
+}

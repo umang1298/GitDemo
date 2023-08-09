@@ -1,0 +1,25 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class scope {
+
+	public static void main(String[] args) {
+		//Section 11, LECTURE = 92
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		// 1. Give me the count of links on the page
+		// Hint - Every link has tag called a
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		System.out.println (driver.findElements(By.tagName("a")).size());
+		
+		// 2. Get me the count of links present in footer section
+		// Ans- Global driver object has access to entire page so now i want to minimize it.So we will create subset/miniDriver from that main driver so i can create mini create only for footer section. That mini driver scope only for footer section
+		WebElement footerdriver = driver.findElement(By.id("gf-BIG"));
+
+	}
+
+}

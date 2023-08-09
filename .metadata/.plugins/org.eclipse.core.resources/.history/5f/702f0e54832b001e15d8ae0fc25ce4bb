@@ -1,0 +1,69 @@
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class base {
+
+	public static void main(String[] args) throws InterruptedException {
+		// SECTION - 8, LECTURE- 70
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		String[] itemsNeeded= {"Cucumber","Brocolli","Beetroot","Carrot"};
+		
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		Thread.sleep(3000);
+		
+		
+	}
+	
+	
+	
+	public void addItems(WebDriver driver, String[] itemsNeeded)
+	{
+		int j=0;
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name ")); // In general written type of this findElements is web element.And as here we are writtening the list of web elements so use list
+		
+		for(int i=0;i<products.size();i++) // Because total no. of 30 elements
+		{
+			
+			//Brocolli - 1 kg      These string aare split into two strings
+			
+			String[] name = products.get(i).getText().split("-");
+			String formattedName=name[0].trim();
+				
+					
+			//convert array into arrayList for easy search
+			//check weather name u extracted is present or not in arraylist
+			
+			
+			List itemsNeededList = Arrays.asList(itemsNeeded);
+			
+			
+			
+			if(itemsNeededList.contains(formattedName))
+			{
+				j++;
+				//click on Add to cart
+				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click(); //if In locator text is not static so dont use text() locator it is not advisable to good to use for dynamic text.so do not use text locator cz it might change
+				//3times
+				if(j==itemsNeeded.length)
+				{
+					break;
+				}
+				
+			}
+		}
+	}
+
+	}
+	
+
+	
+	
+	

@@ -1,0 +1,30 @@
+package Actions;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class parentWindowChildWindow {
+
+	public static void main(String[] args) {
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://rahulshettyacademy.com/loginpagePractise/#");
+		// Above driver object will not have the knowledge about the new tab or new window which is opened so u have to give knowledge explicitly to selenium then selenium can shift the focus from parent to childbrowser
+		
+		driver.findElement(By.cssSelector(".blinkingText")).click();
+		Set<String> windows=driver.getWindowHandles(); //[parentid,childid ]
+		Iterator<String>it=windows.iterator();
+		String parentId = it.next();
+		String ChildID = it.next();
+		driver.switchTo().window(ChildID);
+		
+		
+		
+
+	}
+
+}

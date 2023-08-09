@@ -1,0 +1,24 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class scope {
+
+	public static void main(String[] args) {
+		//Section 11, LECTURE = 92
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		// 1. Give me the count of links on the page
+		// Hint - Every link has tag called a
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		System.out.println (driver.findElements(By.tagName("a")).size());
+		
+		
+		
+		
+
+	}
+
+}

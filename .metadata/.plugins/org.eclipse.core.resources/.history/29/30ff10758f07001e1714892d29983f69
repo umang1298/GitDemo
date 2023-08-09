@@ -1,0 +1,18 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class locators2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+WebDriver driver = new EdgeDriver();
+		driver.findElement(By.id("inputUsername")).sendKeys("Umang");
+		driver.findElement(By.name("inputPassword")).sendKeys(rahulshettyacademy");
+		driver.findElement(By.className("signInBtn")).click();
+	}
+
+}

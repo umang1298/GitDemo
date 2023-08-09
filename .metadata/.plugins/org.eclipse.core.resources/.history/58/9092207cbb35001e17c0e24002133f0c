@@ -1,0 +1,36 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class calendar {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.path2usa.com/travel-companion/");
+		//I will provide month name & date name= 23April
+		
+		driver.findElement(By.xpath("//*[@id='form-field-travel_comp_date']")).click();
+		
+		List<WebElement> dates = driver.findElements(By.cssSelector("flatpickr-day"));
+		int count= driver.findElements(By.cssSelector("flatpickr-day")).size();
+		
+		for(int i=0;i<count;i++)
+		{
+			String text= driver.findElements(By.cssSelector("flatpickr-day")).get(i).getText(); //flatpickr-day
+			if(text.equalsIgnoreCase("23"))
+			{
+				driver.findElements(By.cssSelector("flatpickr-day")).get(i).click();
+				break;
+			}
+			
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,42 @@
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Assert;
+
+public class UpdatedDropDown {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		//LECTURE - 60
+		
+		Assert.assertTrue(driver.findElement(By.cssSelector("input[id*=\"SeniorCitizenDiscount\"]")).isSelected());
+		
+		
+		//LECTURE - 59
+		
+		System.out.println(driver.findElement(By.cssSelector("input[id*=\"SeniorCitizenDiscount\"]")).isSelected()); //For check box we are using IsSelected method to test either checkbox is check or not
+		driver.findElement(By.cssSelector("input[id*=\"SeniorCitizenDiscount\"]")).click(); //If the value is big so took after _ and give * with attribute
+		System.out.println(driver.findElement(By.cssSelector("input[id*=\"SeniorCitizenDiscount\"]")).isSelected());
+		
+//Count the no. of Checkboxes present on page- Find common attribute=value in locator & then make a locator
+		System.out.println(driver.findElements(By.cssSelector("input[type=\"checkbox\"]")).size());
+		
+		
+		//LECTURE -  52 may be
+		driver.findElement(By.id("divpaxinfo")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("hrefIncAdt")).click();
+		for(int i = 1;i<5;i++) {
+			driver.findElement(By.id("hrefIncAdt")).click();
+		}
+		driver.findElement(By.id("btnclosepaxoption")).click();
+		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
+}
+}

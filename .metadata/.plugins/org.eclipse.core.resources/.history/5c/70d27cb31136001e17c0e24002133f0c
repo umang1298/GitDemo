@@ -1,0 +1,18 @@
+package Actions;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class javaScriptExecutor {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver; // Here u r casting ur driver to this javascriptExecutor so driver will be aware to execute javascript
+
+		js.executeScript("window.scrollBy(0,500)"); //This is the method where u prove ur javascript scroll
+	}
+
+}

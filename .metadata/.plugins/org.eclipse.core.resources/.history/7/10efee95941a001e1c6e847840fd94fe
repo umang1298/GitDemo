@@ -1,0 +1,40 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+	
+	import org.openqa.selenium.edge.EdgeDriver;
+	
+	public class locator3{
+		
+	public static void main(String[] args){
+			
+		WebDriver driver = new EdgeDriver();
+		
+		//between siblings and  parent to child traverse
+		//header/div/button[1]/following-sibling::button[1] = Example
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		System.out.println(driver.findElement(By.xpath("//header/div/button[1]/following-sibling::button[1]")).getText());
+		//From parent to child we are using / ..... between siblings we are using following method = Explanation of above line
+		
+		
+		
+		
+		
+		//Now Child to parent traverse and Child to parent to child- 
+		
+		//These kind of traversing back from child to parent is not possible in CSS
+		
+		//header/div/button[1]/parent::div/parent::header/a = Example
+		
+		System.out.println(driver.findElement(By.xpath("//header/div/button[1]/parent::div/button[2]")).getText());
+		
+	
+	}
+	}
+
+
+
